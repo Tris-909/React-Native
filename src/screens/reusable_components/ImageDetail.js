@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     likes: {
         color: 'blue'
     }
+    
 });
 
 const ImageDetail = ({ title, imageUrl, likes }) => {
