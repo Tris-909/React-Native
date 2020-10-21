@@ -24,7 +24,8 @@ const ImageScreen = () => {
 
 const styles = StyleSheet.create({
     text: {
-        textAlign: 'center'
+        textAlign: 'center',
+        fontSize: 60
     }
 });
 

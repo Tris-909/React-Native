@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
+import {View, Text, StyleSheet, Button } from "react-native";
 
 const Separator = () => {
   return(<View style={styles.separator}></View>);
@@ -14,14 +14,19 @@ const HomeScreen = ({navigation}) => {
         <Separator />
         <Button title="List Demo" onPress={() => navigation.navigate('List')}/>
         <Separator />
-        <Button title="Image Screen" onPress={() => navigation.navigate('ImageScreen')}/>
+        <Button title="Image Tag and Re-usable Components" onPress={() => navigation.navigate('ImageScreen')}/>
+        <Separator />
+        <Button title="First State App" onPress={() => navigation.navigate('Counter')} />
+        <Separator />
+        <Button title="Color Generators" onPress={() => navigation.navigate('ColorSelect')} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 50
+    fontSize: 50,
+    textAlign: 'center'
   },
   subTitle: {
     fontSize: 20
