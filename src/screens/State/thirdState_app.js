@@ -6,69 +6,70 @@ const ThirdStateApp = () => {
     const [red, setRed] = useState(0);
     const [blue, setBlue] = useState(0);
     const [green, setGreen] = useState(0);
+    const ChangeValue = 10;
 
     const moreRed = () => {
         let currentRed = red;
-        if (currentRed + 5 >= 255) {
+        if (currentRed + ChangeValue >= 255) {
             currentRed = 255;
             setRed(currentRed);
         } else {
-            currentRed = red + 5;
+            currentRed = red + ChangeValue;
             setRed(currentRed);
         }
     }
 
     const moreBlue = () => {
         let currentBlue = blue;
-        if (currentBlue + 5 >= 255) {
+        if (currentBlue + ChangeValue >= 255) {
             currentBlue = 255;
             setBlue(currentBlue);
         } else {
-            currentBlue = blue + 5;
+            currentBlue = blue + ChangeValue;
             setBlue(currentBlue);
         }
     }
 
     const moreGreen = () => {
         let currentGreen = green;
-        if (currentGreen + 5 >= 255) {
+        if (currentGreen + ChangeValue >= 255) {
             currentGreen = 255;
             setGreen(currentGreen);
         } else {
-            currentGreen = green + 5;
+            currentGreen = green + ChangeValue;
             setGreen(currentGreen);
         }
     }
 
     const lessRed = () => {
         let currentRed = red;
-        if (currentRed - 5 < 0) {
+        if (currentRed - ChangeValue < 0) {
             currentRed = 0;
             setRed(currentRed);
         } else {
-            currentRed = red - 5;
+            currentRed = red - ChangeValue;
             setRed(currentRed);
         }
     }
 
     const lessBlue = () => {
         let currentBlue = blue;
-        if (currentBlue - 5 < 0) {
+        if (currentBlue - ChangeValue < 0) {
             currentBlue = 0;
             setBlue(currentBlue);
         } else {
-            currentBlue = blue - 5;
+            currentBlue = blue - ChangeValue;
             setBlue(currentBlue);
         }
     }
 
     const lessGreen = () => {
         let currentGreen = green;
-        if (currentGreen - 5 < 0) {
+        if (currentGreen - ChangeValue < 0) {
             currentGreen = 0;
             setGreen(currentGreen);
         } else {
-            currentGreen = green - 5;
+            currentGreen = green - ChangeValue;
             setGreen(currentGreen);
         }
     }
