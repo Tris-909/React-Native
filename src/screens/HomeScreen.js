@@ -19,6 +19,8 @@ const HomeScreen = ({navigation}) => {
         <Button title="First State App" onPress={() => navigation.navigate('Counter')} />
         <Separator />
         <Button title="Color Generators" onPress={() => navigation.navigate('ColorSelect')} />
+        <Separator />
+        <Button title="Color Changer" onPress={() => navigation.navigate('ThirdStateApp')} />
     </View>
   );
 };
