@@ -24,7 +24,9 @@ const HomeScreen = ({navigation}) => {
         <Separator />
         <Button title="Text Input State" onPress={() => navigation.navigate('TextInput')} />
         <Separator />
-        <Button title="Box Screen" onPress={() => navigation.navigate('BoxScreen')} />
+        <Button title="BoxScreen" onPress={() => navigation.navigate('BoxScreen')} />
+        <Separator />
+        <Button title="Restaurant Search App" onPress={() => navigation.navigate('RestaurantSearchApp')} />
     </View>
   );
 };

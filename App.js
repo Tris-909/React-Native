@@ -10,6 +10,7 @@ import ColorSelect from './src/screens/State/secondState_app';
 import ThirdStateApp from './src/screens/State/thirdState_app';
 import InputTextState from './src/screens/State/fourState_app';
 import BoxScreen from './src/screens/LayoutNative/BoxScreen';
+import RestaurantSearchApp from './src/screens/RestaurantSearchApp/RestaurantSearchApp';
 
 const navigator = createStackNavigator(
   {
@@ -21,7 +22,8 @@ const navigator = createStackNavigator(
     ColorSelect: ColorSelect,
     ThirdStateApp: ThirdStateApp,
     TextInput: InputTextState,
-    BoxScreen: BoxScreen
+    BoxScreen: BoxScreen,
+    RestaurantSearchApp: RestaurantSearchApp
   },
   {
     initialRouteName: "Home",
