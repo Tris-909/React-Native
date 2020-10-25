@@ -27,6 +27,8 @@ const HomeScreen = ({navigation}) => {
         <Button title="BoxScreen" onPress={() => navigation.navigate('BoxScreen')} />
         <Separator />
         <Button title="Restaurant Search App" onPress={() => navigation.navigate('RestaurantSearchApp')} />
+        <Separator />
+        <Button title="Blogs" onPress={() => navigation.navigate('Blog')} />
     </View>
   );
 };
