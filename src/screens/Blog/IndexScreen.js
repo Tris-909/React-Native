@@ -8,7 +8,7 @@ const Blog = (props) => {
     
     useEffect(() => {
         value.getAllBlogPosts();
-    }, []);    
+    }, [value.state]);    
 
     return(
         <View>

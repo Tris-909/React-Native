@@ -4,22 +4,11 @@ import axios from '../API/axios';
 
 const reducer = (state, action) => {
     switch(action.type) {
-        case 'ADD_POST': 
-            const newPost = { title: action.title, content: action.content  ,id: Math.floor(Math.random()*9999) };
-            return {
-                ...state,
-                todos: [...state.todos, newPost]
-            };
         case 'GET_ALL_POSTS': 
             const newArr = action.arr;
             return {
                 ...state,
                 todos: newArr
-            }
-        case 'DELETE_POST':
-            return {
-                ...state,
-                todos: state.todos.filter((item) => item.id != action.id)
             }
         case 'EDIT_POST':
             const selectedPost = state.todos.filter(item => item.id == action.id);
@@ -39,14 +28,19 @@ const reducer = (state, action) => {
 
 const addBlogPosts = (dispatch) => {
     return (title, content) => {
-        dispatch({ type: 'ADD_POST', title: title, content: content })
+        server.post('/todos', { title: title, content: content, id: Math.floor(Math.random()*9999) }).then((result) => {
+            console.log(result);
+        }).catch((err) => {
+            console.log(err);
+        });
+
+        dispatch({ type: 'GET_ALL_POSTS'});
     };
 }
 
 const getAllBlogPosts = (dispatch) => {
     return () => {
         server.get('/todos').then((result) => {
-            console.log(result);
             dispatch({ type: 'GET_ALL_POSTS', arr: result.data});
         }).catch((error) => {
             console.log(error);
@@ -56,13 +50,15 @@ const getAllBlogPosts = (dispatch) => {
 
 const editBlog = (dispatch) => {
     return (id, title, content) => {
-        dispatch({ type: 'EDIT_POST', id: id, title: title, content: content });
+        server.put(`/todos/${id}`, { title: title, content: content });
+        dispatch({ type: 'GET_ALL_POSTS'});
     } 
 }
 
 const deleteBlog = (dispatch) => {
     return (id) => {
-        dispatch({type: 'DELETE_POST', id: id})
+        server.delete(`/todos/${id}`);
+        dispatch({ type: 'GET_ALL_POSTS'});
     }
 }
 
