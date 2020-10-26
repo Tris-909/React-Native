@@ -44,7 +44,8 @@ const navigator = createStackNavigator(
     Business: Business,
     Blog: Blog,
     ShowScreen: ShowScreen,
-    CreateScreen: CreateScreen
+    CreateScreen: CreateScreen,
+    EditScreen: EditScreen
   },
   {
     initialRouteName: "Home",

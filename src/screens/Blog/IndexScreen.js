@@ -5,7 +5,7 @@ import { Feather, AntDesign } from '@expo/vector-icons';
 
 const Blog = (props) => {
     const value = useContext(Context);
-
+    
     return(
         <View>
             <View style={styles.indexHeader}>
@@ -16,7 +16,7 @@ const Blog = (props) => {
             </View>
             <FlatList 
                 keyExtractor={item => item.title}
-                data={value.state}
+                data={value.state.todos}
                 renderItem={(item) => {
                     return(
                         <TouchableOpacity onPress={() => props.navigation.navigate('ShowScreen', { 
