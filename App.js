@@ -26,6 +26,7 @@ import Business from './src/screens/RestaurantSearchApp/BusinessDetail/BusinessD
 import Blog from './src/screens/Blog/IndexScreen';
 import ShowScreen from './src/screens/Blog/ShowScreen';
 import CreateScreen from './src/screens/Blog/CreateScreen';
+import EditScreen from './src/screens/Blog/EditScreen';
 import {Provider} from './src/screens/Blog/context/context';
 
 const navigator = createStackNavigator(
@@ -42,7 +43,8 @@ const navigator = createStackNavigator(
     RestaurantSearchApp: RestaurantSearchApp,
     Business: Business,
     Blog: Blog,
-    ShowScreen: ShowScreen
+    ShowScreen: ShowScreen,
+    CreateScreen: CreateScreen
   },
   {
     initialRouteName: "Home",

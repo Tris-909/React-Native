@@ -1,14 +1,19 @@
 import React, {useContext} from 'react';
-import {Text, View, StyleSheet, FlatList, Button, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import { Context } from './context/context';
-import { Feather } from '@expo/vector-icons';
+import { Feather, AntDesign } from '@expo/vector-icons';
 
 const Blog = (props) => {
     const value = useContext(Context);
 
     return(
         <View>
-            <Text style={styles.mainTitle}>Blog</Text>
+            <View style={styles.indexHeader}>
+                <Text style={styles.mainTitle}>TO-DO List</Text>
+                <TouchableOpacity style={styles.plus} onPress={() => props.navigation.navigate('CreateScreen')}>
+                    <AntDesign name="plus" size={30} color="black" />
+                </TouchableOpacity>
+            </View>
             <FlatList 
                 keyExtractor={item => item.title}
                 data={value.state}
@@ -20,7 +25,7 @@ const Blog = (props) => {
                                 content: item.item.content 
                             })}> 
                             <View style={styles.row}>
-                                <Text style={styles.title}>{item.item.title} with ID: {item.item.id}</Text>
+                                <Text style={styles.title}>{item.item.title}</Text>
                                 <TouchableOpacity onPress={() => value.deleteBlog(item.item.id)}>
                                     <Feather name="trash" size={30} />
                                 </TouchableOpacity>
@@ -30,7 +35,6 @@ const Blog = (props) => {
                     );
                 }}
             />
-            <Button title="add Post" onPress={value.addBlogPosts} />
         </View>
     );
 }
@@ -53,6 +57,16 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 20
+    },
+    indexHeader: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignContent: 'center'
+    },
+    plus: {
+        alignSelf: 'center',
+        marginRight: 15
     }
 });
 
