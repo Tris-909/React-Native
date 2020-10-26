@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Text, View, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import { Context } from './context/context';
 import { Feather, AntDesign } from '@expo/vector-icons';
@@ -6,6 +6,10 @@ import { Feather, AntDesign } from '@expo/vector-icons';
 const Blog = (props) => {
     const value = useContext(Context);
     
+    useEffect(() => {
+        value.getAllBlogPosts();
+    }, []);    
+
     return(
         <View>
             <View style={styles.indexHeader}>
@@ -71,3 +75,8 @@ const styles = StyleSheet.create({
 });
 
 export default Blog;
+
+//! This Application using JSON Server
+//! Next to this file, we have a file called "jsonserver"
+//! Go to that file and open the terminal : "npm run db" and "npm run tunnel" to prepare our local server
+//! After this, the App should be working as normal

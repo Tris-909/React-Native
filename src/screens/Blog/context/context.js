@@ -1,4 +1,6 @@
 import createDataContext from './createDataContext';
+import server from '../API/axios';
+import axios from '../API/axios';
 
 const reducer = (state, action) => {
     switch(action.type) {
@@ -8,6 +10,12 @@ const reducer = (state, action) => {
                 ...state,
                 todos: [...state.todos, newPost]
             };
+        case 'GET_ALL_POSTS': 
+            const newArr = action.arr;
+            return {
+                ...state,
+                todos: newArr
+            }
         case 'DELETE_POST':
             return {
                 ...state,
@@ -30,10 +38,21 @@ const reducer = (state, action) => {
 }
 
 const addBlogPosts = (dispatch) => {
-    return (title, content) => {dispatch({ type: 'ADD_POST', title: title, content: content })};
+    return (title, content) => {
+        dispatch({ type: 'ADD_POST', title: title, content: content })
+    };
 }
 
-
+const getAllBlogPosts = (dispatch) => {
+    return () => {
+        server.get('/todos').then((result) => {
+            console.log(result);
+            dispatch({ type: 'GET_ALL_POSTS', arr: result.data});
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+}
 
 const editBlog = (dispatch) => {
     return (id, title, content) => {
@@ -47,5 +66,5 @@ const deleteBlog = (dispatch) => {
     }
 }
 
-export const {Context, Provider} = createDataContext(reducer, { addBlogPosts, deleteBlog, editBlog }, { todos: [], currentToDo: null });
+export const {Context, Provider} = createDataContext(reducer, { getAllBlogPosts, addBlogPosts, deleteBlog, editBlog }, { todos: [], currentToDo: null });
 
