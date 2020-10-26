@@ -24,7 +24,9 @@ import RestaurantSearchApp from './src/screens/RestaurantSearchApp/RestaurantSea
 import Business from './src/screens/RestaurantSearchApp/BusinessDetail/BusinessDetail';
 
 import Blog from './src/screens/Blog/IndexScreen';
-import {BlogProvider} from './src/screens/Blog/context/context';
+import ShowScreen from './src/screens/Blog/ShowScreen';
+import CreateScreen from './src/screens/Blog/CreateScreen';
+import {Provider} from './src/screens/Blog/context/context';
 
 const navigator = createStackNavigator(
   {
@@ -39,7 +41,8 @@ const navigator = createStackNavigator(
     BoxScreen: BoxScreen,
     RestaurantSearchApp: RestaurantSearchApp,
     Business: Business,
-    Blog: Blog
+    Blog: Blog,
+    ShowScreen: ShowScreen
   },
   {
     initialRouteName: "Home",
@@ -52,6 +55,9 @@ const navigator = createStackNavigator(
 const App = createAppContainer(navigator);
 
 export default () => {
-
-  return(<BlogProvider><App /></BlogProvider>);
+  return(
+    <Provider>
+      <App />
+    </Provider>
+  );
 }
